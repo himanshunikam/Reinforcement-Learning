@@ -4,10 +4,10 @@ from plot import *
 # Q-Learning mit Optimistic Initialisation
 
 if __name__ == '__main__':
-    env = Cliff()
+    env = MazeWater()
     num_states = env.num_states()
     num_actions = env.num_actions()
-    num_episodes = 50000
+    num_episodes = 50
     optimistic_value = 10000
     q_table = np.zeros((num_states, num_actions))
 
@@ -16,8 +16,8 @@ if __name__ == '__main__':
             q_table[x][y] = optimistic_value
 
     alpha = 0.1
-    gamma = 0.9
-    epsilon = 0.1
+    gamma = 0.999
+    epsilon = 0.01
 
 
     for episode in range(num_episodes):
